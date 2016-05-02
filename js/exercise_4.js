@@ -63,10 +63,10 @@ featureLayer.on('ready', function() {
   })
 
   var myGeoJSON = myLocation.getGeoJSON();
-  
-  getDirections(myGeoJSON.geometry.coordinates, 
+
+  getDirections(myGeoJSON.geometry.coordinates,
                feature.geometry.coordinates);
-  
+
   }
 
 featureLayer.on('ready', function(){
@@ -79,7 +79,7 @@ map.on('click',function(e){
 	$('#info').fadeOut(200);
     $('#info').empty();
 })
- 
+
 ///GEOLOCATION TOOL
 
 
@@ -135,7 +135,7 @@ function getDirections(frm, to){
         "stroke-width": 8
       }
     })
-    
+
     /////IF ITS MESSED UP LOOK HERE
     $('#directions').fadeIn(400, function(){
       $('#summary').empty();
@@ -150,8 +150,7 @@ function getDirections(frm, to){
         direction += '</li>';
         $('#summary').append(direction);
       })
-    })
+    });
     map.on('click', function(){
   routeLine.clearLayers();
 })
-    })
