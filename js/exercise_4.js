@@ -123,7 +123,7 @@ function getDirections(frm, to){
     }
   }).done(function(data){
     var routeShape = polyline.decode(data.trip.legs[0].shape);
-    routeLine.setGeoJSON9({
+    routeLine.setGeoJSON({
      type: 'Feature',
       geometry: {
         type: 'LineString',
