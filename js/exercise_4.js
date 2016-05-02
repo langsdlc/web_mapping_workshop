@@ -40,10 +40,7 @@ featureLayer.on('ready', function() {
 ///    layer.bindPopup('Welcome to ' + layer.feature.properties.name);
 ///  });
 ///});
-
-
-///CLICK HANDLER
-  var clickHandler = function(e){
+var clickHandler = function(e){
   $('#info').empty();
 
   var feature = e.target.feature;
@@ -55,12 +52,23 @@ featureLayer.on('ready', function() {
     info += '<h2>' + feature.properties.name + '</h2>'
     if(feature.properties.phone) info +=   '<p>'  + feature.properties.cuisine + '</p>'
     if(feature.properties.phone) info +=   '<p>'  + feature.properties.phone + '</p>'
-    if(feature.properties.phone) info +=   '<p>'  + feature.properties.website + '</p>'
     if(feature.properties.phone) info +=   '<p><a href="' + feature.properties.website + '">'  + feature.properties.website + '</a></p>'
     info += '</div>'
 
     $('#info').append(info);
-  })
+  });
+};
+
+featureLayer.on('ready', function(){
+  this.eachLayer(function(layer){
+    layer.on('click', clickHandler);
+  });
+});
+
+map.on('click',function(e){
+	$('#info').fadeOut(200);
+  $('#info').empty();
+});
 
   var myGeoJSON = myLocation.getGeoJSON();
 
@@ -136,21 +144,4 @@ function getDirections(frm, to){
       }
     })
 
-    /////IF ITS MESSED UP LOOK HERE
-    $('#directions').fadeIn(400, function(){
-      $('#summary').empty();
-      $('#distance').text((Math.round(data.trip.summary.length * 100) / 100) + data.trip.units);
-      $('#time').text((Math.round(data.trip.summary.time / 60 * 100) / 100) + ' min');
-
-      data.trip.legs[0].maneuvers.forEach(function(item){
-        var direction = '';
-        direction += '<li class="instruction" data-begin=' + item.begin_shape_index + ' data-end=' + item.end_shape_index + '>';
-        if(item.verbal_post_transition_instruction) direction += '<p class="post-transition">' + item.verbal_post_transition_instruction + '</p>';
-        if(item.verbal_pre_transition_instruction) direction += '<p class="pre-transition">' + item.verbal_pre_transition_instruction + '</p>';
-        direction += '</li>';
-        $('#summary').append(direction);
-      })
-    });
-    map.on('click', function(){
-  routeLine.clearLayers();
-})
+    
