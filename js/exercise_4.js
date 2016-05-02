@@ -154,4 +154,4 @@ function getDirections(frm, to){
     map.on('click', function(){
   routeLine.clearLayers();
 })
-}
+
