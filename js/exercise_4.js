@@ -62,7 +62,7 @@ featureLayer.on('ready', function() {
     $('#info').append(info);
   })
 
-  var my GeoJSON = myLocation.getGeoJSON();
+  var myGeoJSON = myLocation.getGeoJSON();
   
   getDirections(myGeoJSON.geometry.coordinates, 
                feature.geometry.coordinates);
@@ -116,7 +116,7 @@ function getDirections(frm, to){
     units: 'miles'
   })
   $.ajax({
-    url:'http://valhalla.mapzen.com/route',
+    url:'https://valhalla.mapzen.com/route',
     data:{
       json: jsonPayload,
       api_key: 'valhalla-tw3wJQH'
