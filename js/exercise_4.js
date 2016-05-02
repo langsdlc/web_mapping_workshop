@@ -60,19 +60,25 @@ featureLayer.on('ready', function() {
     info += '</div>'
 
     $('#info').append(info);
-  });
-};
+  })
+
+  var my GeoJSON = myLocation.getGeoJSON();
+  
+  getDirections(myGeoJSON.geometry.coordinates, 
+               feature.geometry.coordinates);
+  
+  }
 
 featureLayer.on('ready', function(){
   this.eachLayer(function(layer){
     layer.on('click', clickHandler);
-  });
-});
+  })
+})
 
 map.on('click',function(e){
 	$('#info').fadeOut(200);
     $('#info').empty();
-});
+})
  
 ///GEOLOCATION TOOL
 
