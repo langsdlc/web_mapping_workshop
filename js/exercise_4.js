@@ -68,14 +68,14 @@ featureLayer.on('ready', function(){
 map.on('click',function(e){
 	$('#info').fadeOut(200);
   $('#info').empty();
-});
+})
 
   var myGeoJSON = myLocation.getGeoJSON();
 
   getDirections(myGeoJSON.geometry.coordinates,
                feature.geometry.coordinates);
 
-  }
+  
 
 featureLayer.on('ready', function(){
   this.eachLayer(function(layer){
@@ -110,7 +110,6 @@ map.on('locationfound', function(e){
 })
 
 map.locate({setView: true})
-
 
 var routeLine = L.mapbox.featureLayer().addTo(map);
 
