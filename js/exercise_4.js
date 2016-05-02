@@ -35,6 +35,43 @@ featureLayer.on('ready', function() {
   map.fitBounds(featureLayer.getBounds());
 });
 
+///featureLayer.on('ready', function(){
+///  this.eachLayer(function(layer){
+///    layer.bindPopup('Welcome to ' + layer.feature.properties.name);
+///  });
+///});
+  
+  var clickHandler = function(e){
+  $('#info').empty();
+
+  var feature = e.target.feature;
+
+  $('#info').fadeIn(400,function(){
+    var info = '';
+
+    info += '<div>'
+    info += '<h2>' + feature.properties.name + '</h2>'
+    if(feature.properties.phone) info +=   '<p>'  + feature.properties.cuisine + '</p>'
+    if(feature.properties.phone) info +=   '<p>'  + feature.properties.phone + '</p>'
+    if(feature.properties.phone) info +=   '<p>'  + feature.properties.website + '</p>'
+    if(feature.properties.phone) info +=   '<p><a href="' + feature.properties.website + '">'  + feature.properties.website + '</a></p>'
+    info += '</div>'
+
+    $('#info').append(info);
+  });
+};
+
+featureLayer.on('ready', function(){
+  this.eachLayer(function(layer){
+    layer.on('click', clickHandler);
+  });
+});
+
+map.on('click',function(e){
+	$('#info').fadeOut(200);
+    $('#info').empty();
+});
+  
 var myLocation = L.mapbox.featureLayer().addTo(map);
 
 
@@ -55,3 +92,24 @@ map.on('locationfound', function(e){
 
 map.locate({setView: true})
 
+function getDirections(frm, to){
+  var jsonPayload = JSON.stringify({
+    locations:[
+      {lat: frm[1], lon: frm[0]},
+      {lat: to[1], lon: to[0]}
+    ],
+    costing: 'pedestrian',
+    units: 'miles'
+  })
+  $.ajax({
+    url:'http://valhalla.mapzen.com/route',
+    data:{
+      json: jsonPayload,
+      api_key: 'valhalla-tw3wJQH'
+    }
+  }).done(function(data){
+    
+  })
+
+          
+}
