@@ -1,7 +1,7 @@
 Web Mapping Workshop
 ====================
 
-# What _is_ a web-map?
+# What _is_ a web-map??
 
 There are a ton of different ways of putting mapping data on the web.  Ranging from simple images to PDF's that the user has to download to dynamic and complex web mapping applications.
 
