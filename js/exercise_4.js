@@ -34,3 +34,24 @@ featureLayer.on('ready', function() {
   });
   map.fitBounds(featureLayer.getBounds());
 });
+
+var myLocation = L.mapbox.featureLayer().addTo(map);
+
+
+map.on('locateionfound', function(e){
+    myLocation.setGeoJSON({
+       type: 'Feature',
+       geometry: {
+       	   type: 'Point',
+           coordinates: [e.latlng.lng e.latlng.lat]
+       },
+       properties: {
+         "title": "Here I am!",
+         "marker-color": "#FF0000",
+         "marker-symbol": "star-stroked"
+       }
+    })
+})
+
+map.locate({setView: true})
+
