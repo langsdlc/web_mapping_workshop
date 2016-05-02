@@ -40,7 +40,9 @@ featureLayer.on('ready', function() {
 ///    layer.bindPopup('Welcome to ' + layer.feature.properties.name);
 ///  });
 ///});
-  
+
+
+///CLICK HANDLER
   var clickHandler = function(e){
   $('#info').empty();
 
@@ -71,7 +73,10 @@ map.on('click',function(e){
 	$('#info').fadeOut(200);
     $('#info').empty();
 });
-  
+ 
+///GEOLOCATION TOOL
+
+
 var myLocation = L.mapbox.featureLayer().addTo(map);
 
 
@@ -92,6 +97,9 @@ map.on('locationfound', function(e){
 
 map.locate({setView: true})
 
+
+var routeLine = L.mapbox.featureLayer().addTo(map);
+
 function getDirections(frm, to){
   var jsonPayload = JSON.stringify({
     locations:[
@@ -108,8 +116,18 @@ function getDirections(frm, to){
       api_key: 'valhalla-tw3wJQH'
     }
   }).done(function(data){
-    
-  })
-
-          
+    var routeShape = polyline.decode(data.trip.legs[0].shape);
+    routeLine.setGeoJSON9({
+     type: 'Feature',
+      geometry: {
+        type: 'LineString',
+        coordinates: routeShape
+      },
+      properties: {
+        "stroke":"#ed23f1",
+        "stroke-opacitity": 0.8,
+        "stroke-width": 8
+      }
+    })
+  })        
 }
