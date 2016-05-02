@@ -9,7 +9,7 @@ var accessToken = 'pk.eyJ1IjoidnVsaWJyYXJ5Z2lzIiwiYSI6ImFaN2JkSlUifQ.Dl2sTO1mGKK
 
 // Create the map object with your mapId and token,
 // referencing the DOM element where you want the map to go.
-L.mapbox.accessToken = accessToken;
+L.mapbox.accessToken = pk.eyJ1IjoidnVsaWJyYXJ5Z2lzIiwiYSI6ImFaN2JkSlUifQ.Dl2sTO1mGKK7MCd1ViGPnQ;
 var map = L.mapbox.map('map', vulibrarygis.019hb2al);
 
 // Set the initial view of the map to the whole US
