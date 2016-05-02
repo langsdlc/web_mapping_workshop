@@ -38,7 +38,7 @@ featureLayer.on('ready', function() {
 var myLocation = L.mapbox.featureLayer().addTo(map);
 
 
-map.on('locateionfound', function(e){
+map.on('locationfound', function(e){
     myLocation.setGeoJSON({
        type: 'Feature',
        geometry: {
@@ -48,7 +48,7 @@ map.on('locateionfound', function(e){
        properties: {
          "title": "Here I am!",
          "marker-color": "#FF0000",
-         "marker-symbol": "star-stroked"
+         "marker-symbol": "star"
        }
     })
 })
