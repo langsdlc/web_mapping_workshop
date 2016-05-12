@@ -1,0 +1,85 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "marker-color": "#7E7E7E",
+        "marker-size": "medium",
+        "marker-symbol": "",
+        "title": "Peabody Library"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -86.79941654205322,
+          36.14250148394985
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "marker-color": "#7E7E7E",
+        "marker-size": "medium",
+        "marker-symbol": "",
+        "title": "Central Library"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -86.80029630661011,
+          36.145603170240115
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "marker-color": "#7E7E7E",
+        "marker-size": "medium",
+        "marker-symbol": "",
+        "title": "Vanderbilt Stadium"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -86.80898666381836,
+          36.14400902277195
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "marker-color": "#7E7E7E",
+        "marker-size": "medium",
+        "marker-symbol": "",
+        "title": "Furman"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -86.80128335952759,
+          36.14809829254226
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "marker-color": "#7E7E7E",
+        "marker-size": "medium",
+        "marker-symbol": "",
+        "title": "Law"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -86.8000602722168,
+          36.14811561950296
+        ]
+      }
+    }
+  ]
+}
