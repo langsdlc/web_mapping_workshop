@@ -13,11 +13,11 @@ L.mapbox.accessToken = 'pk.eyJ1IjoidnVsaWJyYXJ5Z2lzIiwiYSI6ImFaN2JkSlUifQ.Dl2sTO
 var map = L.mapbox.map('map', 'vulibrarygis.019hb2al');
 
 // Set the initial view of the map to the whole US
-map.setView([39, -96], 4);
+map.setView([36, -86], 4);
 
 // Great, now we have a basic web map!
 
-var dataFileToAdd = 'data/restaurants.geojson';
+var dataFileToAdd = 'data/places.geojson';
 
 var featureLayer = L.mapbox.featureLayer();
 	featureLayer.loadURL(dataFileToAdd);
@@ -28,7 +28,7 @@ featureLayer.on('ready', function(){
     	layer.setIcon(L.mapbox.marker.icon({
         	"marker-color": "#8834bb",
           	"marker-size": "large",
-          	"marker-symbol": "restaurant"
+          	"marker-symbol": "star"
         }))
     })
     map.fitBounds(featureLayer.getBounds());
